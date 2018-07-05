@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.dao.UserInfoMapper">
+ 
+ <insert id="addUser" parameterType="UserInfo">
+ insert  into  userinfo(uid,username,password,salary)  values(#{uid},#{username},#{password},#{salary})
+ </insert>
+<select id="getUsers" resultType="UserInfo">
+select *  from userinfo
+</select>
+<delete id="deleteUser" parameterType="int">
+delete  from  userinfo  where uid=#{uid}
+</delete>
+<update id="updateUser" parameterType="UserInfo">
+update  userinfo  set username=#{username},password=#{password},salary=#{salary} where uid=#{uid}
+</update>
+<select id="getUserByUid" parameterType="int"  resultType="UserInfo">
+select *  from userinfo  where uid=#{uid}
+</select>
+</mapper>
+
